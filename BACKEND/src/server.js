@@ -1,4 +1,4 @@
-import app from './APP.JS';
+import app from './app.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
