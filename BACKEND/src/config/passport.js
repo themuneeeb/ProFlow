@@ -1,4 +1,4 @@
-// Import necessary modules using ES module syntax
+// src/config/passport.js
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import User from '../models/User.js';
@@ -13,15 +13,26 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        // Find or create user
+        // 1) Try find by googleId
         let user = await User.findOne({ googleId: profile.id });
+
+        // 2) If not found, try find by email to link accounts
         if (!user) {
-          user = await User.create({
-            googleId: profile.id,
-            name: profile.displayName,
-            email: profile.emails[0].value,
-            role: 'employee',      // default
-          });
+          const email = profile.emails[0].value;
+          const existing = await User.findOne({ email });
+          if (existing) {
+            // Link Google to existing local account
+            existing.googleId = profile.id;
+            user = await existing.save();
+          } else {
+            // 3) Create brand new user via Google
+            user = await User.create({
+              googleId: profile.id,
+              name: profile.displayName,
+              email: email,
+              verified: true, // Google email is trusted
+            });
+          }
         }
         return done(null, user);
       } catch (err) {
@@ -31,8 +42,10 @@ passport.use(
   )
 );
 
-// Serialize and deserialize user
+// Serialize and deserialize user (no sessions in JWT flow but needed for passport)
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser((id, done) =>
-  User.findById(id).then((user) => done(null, user)).catch(done)
+  User.findById(id)
+    .then((user) => done(null, user))
+    .catch(done)
 );

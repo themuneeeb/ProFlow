@@ -1,3 +1,4 @@
+// src/models/User.js
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
@@ -5,9 +6,12 @@ const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
     email: { type: String, required: true, unique: true, lowercase: true },
-    password: { type: String },
+    password: {
+      type: String,
+      required: function() { return !this.googleId; },
+    },
     googleId: { type: String, unique: true, sparse: true },
-    role: { type: String, enum: ['admin', 'employee'], default: 'employee' },
+    verified: { type: Boolean, default: false },
     workspaces: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Workspace' }],
   },
   { timestamps: true }
