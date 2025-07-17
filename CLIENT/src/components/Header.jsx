@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+// src/components/Header.jsx
+import React, { useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-  const navItems = [ 'Home', 'About', 'Features', "FAQ's" ];
+  const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
+  const navItems = ['Home', 'About', 'Features', "FAQ's"]
+
+  const handleNavClick = (item) => {
+    if (item === 'Home') {
+      navigate('/')
+    } else {
+      // placeholder: future sections
+      navigate(`/#${item.toLowerCase()}`)
+    }
+    setOpen(false)
+  }
 
   return (
     <>
@@ -13,17 +26,28 @@ export default function Header() {
           <button onClick={() => setOpen(true)} className="p-2 focus:outline-none">
             <Menu size={28} />
           </button>
-          <div className="text-2xl font-bold">ProFlow</div>
+          <div
+            className="text-2xl font-bold cursor-pointer"
+            onClick={() => navigate('/')}
+          >
+            ProFlow
+          </div>
           <div className="w-8" />
         </div>
 
         {/* Desktop: Logo + menu */}
         <div className="hidden md:flex items-center justify-between w-full">
-          <div className="text-3xl font-bold cursor-pointer">ProFlow</div>
+          <div
+            className="text-3xl font-bold cursor-pointer"
+            onClick={() => navigate('/')}
+          >
+            ProFlow
+          </div>
           <nav className="flex space-x-8">
             {navItems.map((item) => (
               <button
                 key={item}
+                onClick={() => handleNavClick(item)}
                 className="px-4 py-2 focus:outline-none transition-all duration-200 hover:underline hover:-translate-y-1 cursor-pointer"
               >
                 {item}
@@ -39,7 +63,12 @@ export default function Header() {
           ${open ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="flex items-center justify-between h-20 px-6">
-          <div className="text-xl font-bold">ProFlow</div>
+          <div
+            className="text-xl font-bold cursor-pointer"
+            onClick={() => { navigate('/'); setOpen(false) }}
+          >
+            ProFlow
+          </div>
           <button onClick={() => setOpen(false)} className="p-2 focus:outline-none">
             <X size={24} />
           </button>
@@ -48,8 +77,8 @@ export default function Header() {
           {navItems.map((item) => (
             <button
               key={item}
+              onClick={() => handleNavClick(item)}
               className="text-left text-lg py-2 focus:outline-none transition-all duration-150 hover:underline"
-              onClick={() => setOpen(false)}
             >
               {item}
             </button>
@@ -65,5 +94,5 @@ export default function Header() {
         />
       )}
     </>
-  );
+  )
 }
