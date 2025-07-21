@@ -1,4 +1,4 @@
-// server/src/config/index.js
+// Import necessary modules using ES syntax
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';

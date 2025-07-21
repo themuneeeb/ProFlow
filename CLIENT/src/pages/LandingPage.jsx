@@ -1,8 +1,10 @@
 // src/components/LandingPage.jsx
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import bgImage from '../assets/web_bg1.png'
 
 export default function LandingPage() {
+  const navigate = useNavigate()
   const headingText =
     'ProFlow – A Smart Enterprise Project & Performance Management Platform'
   const descriptionText =
@@ -20,15 +22,21 @@ export default function LandingPage() {
     }
   }, [])
 
+  const handleJoin = () => {
+    navigate('/auth', { state: { initialMode: 'login' } })
+  }
+
+  const handleCreate = () => {
+    navigate('/auth', { state: { initialMode: 'register' } })
+  }
+
   return (
     <div
       className="h-screen bg-cover bg-center px-6 md:px-0"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="h-full flex items-center">
-        {/* Left container with responsive left‑padding */}
         <div className="pl-6 md:pl-24 mb-10 md:mb-40 max-w-lg w-full">
-          {/* Animated Heading */}
           <h1
             className={`text-2xl md:text-[24px] font-bold text-white leading-tight whitespace-pre-wrap ${
               isVisible
@@ -39,7 +47,6 @@ export default function LandingPage() {
             {headingText}
           </h1>
 
-          {/* Animated Description */}
           <p
             className={`mt-4 text-base md:text-[18px] text-white whitespace-pre-wrap ${
               isVisible
@@ -50,7 +57,6 @@ export default function LandingPage() {
             {descriptionText}
           </p>
 
-          {/* Button container */}
           <div
             className={`mt-8 mr-15 flex justify-center space-x-4 ${
               isButtonsVisible
@@ -58,10 +64,10 @@ export default function LandingPage() {
                 : 'opacity-0'
             }`}
           >
-            <button className="bubbles">
+            <button onClick={handleJoin} className="bubbles">
               <span className="text">Join Workspace</span>
             </button>
-            <button className="bubbles">
+            <button onClick={handleCreate} className="bubbles">
               <span className="text">Create Workspace</span>
             </button>
           </div>
