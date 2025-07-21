@@ -8,3 +8,9 @@ export const signup = async (values) => {
 export const login = async (values) => {
   return await api.post('/auth/login', values);
 };
+
+export const verifyOtp = ({ email, code }) =>
+  api.post('/auth/verify-otp', { email, code });
+
+export const resendOtp = ({ email }) =>
+  api.post('/auth/resend-otp', { email });
