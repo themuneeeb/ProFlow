@@ -64,7 +64,7 @@ export default function LandingPage() {
                 : 'opacity-0'
             }`}
           >
-            <button onClick={handleJoin} className="bubbles">
+            <button className="bubbles">
               <span className="text">Join Workspace</span>
             </button>
             <button onClick={handleCreate} className="bubbles">

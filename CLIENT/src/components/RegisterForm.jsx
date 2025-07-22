@@ -169,7 +169,7 @@ export default function RegisterForm({ onSwitch, onNeedOtp }) {
           </button>
 
           {/* Sign up with Google */}
-          <OAuthButton label="Sign up with Google" />
+          <OAuthButton label="Continue with Google" />
 
           {/* Switch to Login */}
           <p className="text-center text-gray-500">

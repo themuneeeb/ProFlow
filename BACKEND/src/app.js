@@ -9,6 +9,7 @@ import connectDB from './config/db.js'    // our MongoDB connection fn
 import './config/passport.js'             // sets up GoogleStrategy, serialize/deserialize
 
 import authRoutes from './routes/authRoutes.js'
+import userRoutes from './routes/userRoutes.js' // user-related routes (e.g., getMe)
 import errorHandler from './middlewares/errorHandler.js' // centralized error handler
 
 // ───────────────────────────────────────────────────────────────
@@ -54,6 +55,7 @@ app.use(passport.initialize())
 // ───────────────────────────────────────────────────────────────
 // All auth routes (signup, login, Google OAuth)
 app.use('/auth', authRoutes)
+app.use('/users', userRoutes)   // User-related routes (e.g., getMe)
 
 // ───────────────────────────────────────────────────────────────
 // 404 Handler
