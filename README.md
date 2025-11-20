@@ -1,235 +1,111 @@
-📊 ProFlow – A Smart Enterprise Project & Performance Management Platform
-A modern, intelligent, and scalable solution for managing enterprise projects, teams, workflows, and performance.
-🚀 Overview
+# 📊 ProFlow (oFlow) — A Smart Enterprise Project & Performance Management Platform
 
-ProFlow (formerly oFlow) is a comprehensive Enterprise Project & Performance Management Platform designed to help organizations streamline operations, improve team productivity, and gain full visibility into project pipelines. Built with a focus on automation, smart analytics, and intuitive UX, ProFlow empowers enterprises to manage complex workflows with ease.
+![Resume](/mnt/data/8acf9304-437b-41af-ac79-93642a9daccd.png)
 
-Whether you're overseeing multi-team projects, tracking organizational KPIs, or optimizing team efficiency—ProFlow brings everything together into one centralized, intelligent system.
+> **ProFlow** (previously **oFlow**) is a modern, intelligent, and scalable Enterprise Project & Performance Management Platform designed to help organizations streamline operations, improve team productivity, and gain full visibility into project pipelines. It combines workflow automation, smart analytics, and an intuitive user experience to empower teams and leaders to deliver results.
 
-🎯 Key Objectives
+---
 
-ProFlow aims to:
+## 🚀 Overview
 
-Reduce operational complexity through workflow automation
+ProFlow brings project management, team performance evaluation, and analytics into a single, extensible platform. It is built for enterprises that need to coordinate cross-functional work, measure results with transparent KPIs, and automate repetitive processes while keeping security, scalability, and UX at the forefront.
 
-Provide real-time visibility into project progress and team performance
+---
 
-Enhance collaboration across departments and roles
+## 🎯 Key Objectives
 
-Offer actionable insights using analytics-driven dashboards
+- Reduce operational friction with automated workflows and notifications  
+- Provide real-time visibility into project progress and team performance  
+- Enable data-backed performance evaluations and KPI tracking  
+- Improve collaboration among teams and stakeholders  
+- Make reporting and auditability easy for leadership and admins
 
-Improve performance evaluation with transparent and data-backed metrics
+---
 
-🧠 Core Features
-1. 📁 Unified Project Management
+## 🧠 Core Features
 
-Manage all your enterprise projects in a single, centralized dashboard.
-Includes:
+### 📁 Unified Project Management
+- Project creation, planning and lifecycle management  
+- Milestones, deliverables, and dependency tracking  
+- Task assignment, ownership, and progress indicators  
+- Time estimates and progress dashboards
 
-Project creation & planning
+### 👥 Team & Role Management
+- Employee directory and department grouping  
+- Roles & permissions (RBAC) for secure access control  
+- Cross-functional team collaboration and activity logs
 
-Milestones & deliverables
+### ⚡ Smart Performance Evaluation
+- KPI-driven scoring and automated performance indicators  
+- Contribution summaries per project and role  
+- Time-based evaluation cycles and exportable reports
 
-Task assignment & ownership tracking
+### 📊 Advanced Analytics Dashboard
+- Productivity charts, velocity graphs, and heatmaps  
+- Bottleneck detection and workload distribution visualizations  
+- Custom reports and drill-down filters
 
-Time estimations & progress indicators
+### 🔄 Workflow Automation
+- Configurable workflows: approvals, reminders, escalations  
+- Dependency-driven triggers and alerts  
+- Deadline and risk notifications
 
-2. 👥 Team & Role Management
+### 🔐 Security & Compliance
+- Role-based access control and audit trails  
+- Encrypted data in transit and at rest (configure per-deployment)  
+- Detailed logging for compliance and forensic analysis
 
-A robust employee directory with:
+---
 
-Department-level grouping
+## 🏗️ Suggested System Architecture
 
-Roles & permissions system
+> Replace with your actual stack details as needed.
 
-Cross-functional team collaboration
+- **Frontend:** React + Redux, TailwindCSS  
+- **Backend:** Node.js + Express (or microservices)  
+- **Database:** MongoDB (document store) / PostgreSQL (relational)  
+- **Auth:** JWT / OAuth2; SSO integrations optional  
+- **Infrastructure:** Docker, Kubernetes, CI/CD pipelines (GitHub Actions / GitLab CI)  
+- **Cloud:** AWS / Azure / GCP compatible
 
-Activity logs & accountability tracking
+---
 
-3. ⚡ Smart Performance Evaluation
+## 📚 Modules Breakdown
 
-Data-driven performance metrics powered by:
+- **Project Module** — Lifecycle and task management  
+- **Performance Module** — KPIs, scoring, evaluations  
+- **Work Allocation** — Resource planning and workload balancing  
+- **Reports & Analytics** — BI dashboards and exports  
+- **Admin Console** — Tenant, user, and permission management
 
-KPI scoring
+---
 
-Automated performance indicators
+## 🚦 Typical User Flow
 
-Project contribution summaries
+1. Admin configures departments, teams, and roles.  
+2. Managers create projects, plan milestones, and assign tasks.  
+3. Employees update tasks and track time/progress.  
+4. System computes KPIs and generates performance summaries.  
+5. Leadership reviews reports, identifies risks, and reallocates resources.
 
-Evaluation timelines & reports
+---
 
-4. 📊 Advanced Analytics Dashboard
+## 🛠️ Installation (local development)
 
-Gain insights through:
-
-Productivity charts
-
-Project velocity graphs
-
-Team performance heatmaps
-
-Bottleneck identification
-
-Workload distribution analytics
-
-5. 🔄 Workflow Automation
-
-Define and automate project workflows:
-
-Approvals
-
-Reminders
-
-Deadline alerts
-
-Task dependency flows
-
-Risk notifications
-
-6. 🔐 Secure Role-Based Access Control
-
-Every action is permission-checked:
-
-Admin Panel
-
-Manager dashboards
-
-Employee workspace
-
-Project auditing
-
-7. 🔍 Audit Trails & Reporting
-
-Maintain operational transparency with:
-
-Activity logs
-
-Project history
-
-Evaluation reports
-
-Exportable summaries
-
-🏗️ System Architecture
-
-Note: Adjust this section based on your actual stack.
-
-ProFlow follows a scalable, microservice-ready architecture:
-
-Frontend: React (Redux), TailwindCSS
-
-Backend: Node.js, Express.js
-
-Database: MongoDB / PostgreSQL
-
-Authentication: JWT / OAuth2
-
-DevOps: Docker, CI/CD pipelines
-
-Cloud Support: AWS / Azure
-
-The modular structure ensures easy extension for enterprise environments, including plugin-based workflow components and multi-tenant support.
-
-📚 Modules Breakdown
-🟦 Project Module
-
-Handles complete lifecycle management from initiation to delivery.
-
-🟩 Performance Module
-
-Monitors productivity and evaluates employees with role-based KPIs.
-
-🟨 Work Allocation Module
-
-Tracks workloads and ensures balanced distribution across teams.
-
-🟧 Reports & Analytics Module
-
-Real-time business intelligence for managers and administrators.
-
-🟥 Admin Console
-
-Full system configuration with enterprise-grade access management.
-
-🚦 How It Works (User Flow)
-
-Admin configures departments, teams, and roles
-
-Managers create projects and assign tasks
-
-Employees track and update their progress
-
-System analyzes performance & project health using smart metrics
-
-Reports give leadership visibility into organizational performance
-
-🛠️ Installation & Setup
+```bash
 # Clone repo
 git clone https://github.com/themuneeeb/proflow.git
-
-# Navigate to project
 cd proflow
 
-# Install dependencies
+# Install (example using npm)
 npm install
 
-# Run development server
-npm run dev
+# Environment (example)
+cp .env.example .env
+# edit .env to configure DB, auth, and secrets
 
-🧪 Testing
-npm run test
+# Start backend (example)
+npm run dev:server
 
-
-Supports:
-
-Unit tests
-
-Integration tests
-
-API endpoint validation
-
-Role-based access testing
-
-🌐 Live Demo
-
-Coming soon (or insert your demo link here)
-
-🛡️ Security
-
-Encrypted data-at-rest & in-transit
-
-Strict RBAC rules
-
-Secure API gateway
-
-Audit trails for all operations
-
-🗺️ Roadmap
-
- AI-based performance prediction
-
- Automated workload balancing
-
- Gantt chart visualizations
-
- Cross-department collaboration features
-
- Multi-language support
-
- Integration with Slack, Jira, and Azure DevOps
-
-🤝 Contributing
-
-We welcome contributions!
-Submit issues, pull requests, or feature suggestions via GitHub.
-
-🧑‍💻 Author
-
-Muhammad Muneeb
-GitHub: @themuneeeb
-
-LinkedIn: https://www.linkedin.com/in/muhammad-muneeb-147322247
-
-⭐ Support
-
-If you find this project useful, give it a ⭐ to support the development!
+# Start frontend (example)
+npm run dev:client
